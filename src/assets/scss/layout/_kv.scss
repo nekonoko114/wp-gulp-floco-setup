@@ -1,0 +1,23 @@
+@use "../settings/colors" as *;
+@use "../settings/mixin" as *;
+@use "../settings/variable" as *;
+@use "../settings/setting" as *;
+@use "../util/text" as *;
+
+
+.l-front-fv {
+
+  .custom-header {
+    position: relative;
+  }  
+  .custom-header-description {
+    position: absolute;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    font-size: 64px;
+    white-space:nowrap;
+    @include transform-xy-center();
+  }
+  
+}
+

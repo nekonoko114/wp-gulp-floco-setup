@@ -1,0 +1,41 @@
+@use "../settings/variable" as *;
+@use "../settings/mixin" as *;
+@use "../settings/setting" as *;
+@use "../settings/colors" as * ;
+
+
+.l-aside {
+
+    h2 {
+        padding-bottom: 8px;
+        position: relative;
+        margin-bottom: 16px;
+
+        &::after {
+            position: absolute;
+            content: "";
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background:  $anchor-link;
+        }
+    }
+
+    figure {
+        
+        & > img {
+            margin: 20px 0;
+            border-radius: 999px;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        h2,h3,h4,h5,h6
+        p,ul,ol,li {
+            margin: 16px 0;
+
+        }
+    }
+}

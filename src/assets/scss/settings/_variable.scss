@@ -1,0 +1,31 @@
+@use "sass:map";
+
+// 画像パス（環境ごとに変更可能）
+$imgPath: "../assets/images/" !default;
+
+// **📌 Gridの設定**
+$grid: (
+  gap: 16px,     // グリッドのギャップ
+  columns: 12,   // グリッドのカラム数
+  max-width: 1200px, // 最大幅（コンテナサイズ）
+) !default;
+
+// **📌 フォント設定**
+$font-family: (
+  primary: "Helvetica, Arial, sans-serif",
+  secondary: "'Courier New', Courier, monospace"
+) !default;
+
+// **📌 Z-Indexの管理**
+$z-index: (
+  header: 100,
+  modal: 200,
+  overlay: 300
+) !default;
+
+// **📌 アニメーション設定**
+$animation-speed: (
+  fast: 0.2s,
+  normal: 0.4s,
+  slow: 0.8s
+) !default;

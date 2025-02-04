@@ -1,0 +1,52 @@
+@use "sass:map";
+@use "./colors" as *;
+
+
+
+// **ブレークポイント設定**
+$breakpoints: (
+  "sm": "screen and (max-width: 767px)",  // モバイル向け
+  "md": "screen and (min-width: 768px)",  // タブレット向け
+  "pc": "screen and (min-width: 1200px)"  // デスクトップ向け
+) !default;
+
+// **ブレークポイント用ミックスイン**
+@mixin mq($breakpoint: "sm") {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media #{map.get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  } @else {
+    @error "ブレークポイント `#{$breakpoint}` は定義されていません。";
+  }
+}
+
+// **グリッド設定**
+$grid-columns: 12;
+$grid-gutter-width: 16px;
+
+// **フォント設定**
+$font-family-base: 'Helvetica, Arial, sans-serif';
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+// **ボーダー設定**
+$border-radius: 4px;
+$border-width: 1px;
+
+// **シャドウ設定**
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// **テーマの設定**
+$theme: light; // "light" または "dark"
+
+// **テーマカラーを適用**
+$theme-colors: map.get($theme-colors, $theme) !default;
+
+// 🚀 プロジェクトの設計オプション
+$use-utilities: true; // ✅ ユーティリティクラスを有効化
+$use-components: true; // ✅ コンポーネント（ボタンやカード）を有効化
+$use-animations: false; // ❌ アニメーションを使わない
+$use-dark-mode: false; // ✅ ダークモードを有効化
+// **プロジェクトの基本設定**
+

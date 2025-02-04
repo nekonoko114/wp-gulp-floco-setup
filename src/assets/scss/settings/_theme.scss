@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "./colors" as *;
+@use "./config" as *; // ✅ 設定を読み込み
+
+// ✅ **テーマカラーの定義**
+$theme-colors: (
+  light: (
+    background: #ffffff,
+    text: #000000
+  ),
+  dark: (
+    background: #222222,
+    text: #ffffff
+  )
+);
+
+// ✅ **ダークモードのフラグに基づいて `$current-theme` を設定**
+$theme: if($use-dark-mode, dark, light);
+$current-theme: map.get($theme-colors, $theme);
+
+
+
+body {
+    background-color: map.get($current-theme, background);
+    color: map.get($current-theme, text);
+  }
+  

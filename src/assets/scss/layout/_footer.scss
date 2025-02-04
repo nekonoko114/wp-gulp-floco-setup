@@ -1,0 +1,43 @@
+@use "../settings/variable" as *;
+@use "../settings/mixin" as *;
+@use "../settings/setting" as *;
+@use "../settings/colors" as * ;
+
+.footer {    
+    padding: 100px 20px;
+    background: $site-color;
+}
+
+.footer a {
+    color: #000;
+}
+
+.footer-inner {
+    color: #000;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.footer-logo {
+    img {
+        width: 120px;
+        height: 120px;
+    }
+}
+.footer-lists {
+
+}
+
+.footer-item {
+    
+}
+
+.footer-sns {
+
+}

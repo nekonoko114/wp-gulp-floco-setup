@@ -1,0 +1,76 @@
+@use "sass:map";
+@use "../settings/variable" as *;
+@use "../settings/mixin" as *;
+@use "../settings/config" as *;
+
+.l-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: map.get($grid, gap);
+
+  @include mq(md) {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include mq(sm) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// グリッドアイテム（カラムの幅）
+.l-grid__item {
+  grid-column: span 12;
+
+  @include mq(md) {
+    grid-column: span 6;
+  }
+
+  @include mq(sm) {
+    grid-column: span 4;
+  }
+}
+
+// 2カラムレイアウト
+.l-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.l-grid--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.l-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+// 縦並び（モバイル対応）
+@include mq(sm) {
+  .l-grid--2col,
+  .l-grid--3col,
+  .l-grid--4col {
+    grid-template-columns: 1fr;
+  }
+}
+
+// フレックスボックスのバックアップ
+.l-grid--flex {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: map.get($grid, gap);
+
+  > .l-grid__item {
+    flex: 1 1 calc(100% / 3 - #{map.get($grid, gap)});
+  }
+
+  @include mq(md) {
+    > .l-grid__item {
+      flex: 1 1 calc(100% / 2 - #{map.get($grid, gap)});
+    }
+  }
+
+  @include mq(sm) {
+    > .l-grid__item {
+      flex: 1 1 100%;
+    }
+  }
+}

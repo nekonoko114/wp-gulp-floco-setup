@@ -1,0 +1,25 @@
+// src/assets/scss/settings/_spacing.scss
+@use "sass:map";
+
+// **📌 余白の設定**
+$spacing: (
+  xs: 4px,
+  sm: 8px,
+  md: 16px,
+  lg: 24px,
+  xl: 32px,
+  xxl: 48px
+) !default;
+
+// **📌 ユーティリティクラスを自動生成**
+@mixin spacing-utils($property) {
+  @each $key, $size in $spacing {
+    .u-#{$property}-#{$key} {
+      #{$property}: #{$size} !important;
+    }
+  }
+}
+
+// **📌 クラスを自動生成**
+@include spacing-utils(margin);
+@include spacing-utils(padding);

@@ -1,0 +1,63 @@
+// settings/_colors.scss
+@use "sass:map";
+
+// ✅ **ベースカラー**
+$main-color: #000;
+$site-color: #dedede;
+$accent-color: #fc625d;
+$anchor-link: #00aeef;
+
+// ✅ **カラーパレット**
+$colors: (
+  primary: #007bff,
+  secondary: #6c757d,
+  success: #28a745,
+  danger: #dc3545,
+  warning: #ffc107,
+  info: #17a2b8,
+  light: #f8f9fa,
+  dark: #343a40
+) !default;
+
+// ✅ **背景色設定**
+$bg-light: #ffffff;
+$bg-dark: #222222;
+
+// ✅ **テキストカラー**
+$text-light: #ffffff;
+$text-dark: #000000;
+
+// ✅ **ボーダーカラー**
+$border-color: #e0e0e0;
+
+// ✅ **ダークモード対応**
+$theme-colors: (
+  light: (
+    background: $bg-light,
+    text: $text-dark
+  ),
+  dark: (
+    background: $bg-dark,
+    text: $text-light
+  )
+);
+
+// ✅ **カスタムカラーパレットの定義**
+$custom-colors: (
+  primary: map.get($colors, primary),
+  secondary: map.get($colors, secondary),
+  success: map.get($colors, success),
+  danger: map.get($colors, danger),
+  warning: map.get($colors, warning),
+  info: map.get($colors, info),
+  light: map.get($colors, light),
+  dark: map.get($colors, dark),
+  accent: $accent-color
+);
+
+// ✅ **カスタムプロパティ（CSS変数として出力）**
+:root {
+  @each $key, $value in $custom-colors {
+    --color-#{$key}: #{$value};
+  }
+}
